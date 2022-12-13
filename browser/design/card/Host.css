@@ -1,0 +1,123 @@
+
+browser-card-host {
+	all: unset;
+	display: block;
+	position: relative;
+	width: 800px;
+	max-height: 64px;
+	margin: 0px;
+	padding: 16px;
+	background: var(--surface-default-background);
+	border: 1px solid var(--surface-default-color);
+	border-radius: 8px;
+	box-sizing: border-box;
+	transition: 200ms all ease-out;
+	overflow: hidden;
+	cursor: default;
+}
+
+browser-card-host.active {
+	max-height: unset;
+}
+
+browser-card-host > h3 {
+	display: block;
+	margin: 0px 0px 16px 0px;
+	padding: 0px;
+}
+
+browser-card-host > h3:before {
+	display: inline;
+	content: '\e80d';
+	margin: 0px 16px 0px 0px;
+	padding: 0px;
+	font-family: 'icon';
+	font-size: 24px;
+	font-weight: 400;
+	text-align: center;
+	vertical-align: middle;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+browser-card-host > h3 input[type="text"] {
+	display: inline-block;
+	width: calc(100% - 32px - 32px - 24px);
+	font-family: 'vera-mono';
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 32px;
+}
+
+browser-card-host > button[data-action="toggle"] {
+	display: block;
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	bottom: auto;
+	left: auto;
+}
+
+browser-card-host > button[data-action="toggle"]:before {
+	content: '\e5c5';
+	transition: 200ms transform ease-out;
+}
+
+browser-card-host > button[data-action="toggle"].active:before {
+	transform: rotate(180deg);
+	transition: 200ms transform ease-out;
+}
+
+
+
+browser-card-host-article {
+	display: none;
+	width: 100%;
+	height: auto;
+}
+
+browser-card-host.active browser-card-host-article {
+	display: block;
+}
+
+browser-card-host-article > textarea {
+	display: block;
+	width: 100%;
+	height: auto;
+	background: transparent;
+	resize: vertical;
+}
+
+
+
+browser-card-host-footer {
+	display: none;
+	height: 32px;
+	margin: 16px 0px 0px 0px;
+	padding: 0px;
+	text-align: right;
+}
+
+browser-card-host.active browser-card-host-footer {
+	display: block;
+}
+
+browser-card-host-footer > button {
+	margin-left: 16px;
+}
+
+browser-card-host-footer > button[data-action="create"]:before  { content: '\e145'; }
+browser-card-host-footer > button[data-action="refresh"]:before { content: '\e5d5'; }
+browser-card-host-footer > button[data-action="remove"]:before  { content: '\e14c'; }
+browser-card-host-footer > button[data-action="save"]:before    { content: '\e876'; }
+
+
+
+@media screen and (max-width: 800px) {
+
+	browser-card-host {
+		width: auto;
+	}
+
+}
+

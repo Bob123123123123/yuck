@@ -1,0 +1,46 @@
+{
+	"name": "stealth",
+	"description": "Tholian® Stealth - Secure, Peer-to-Peer, Private and Automatable Web Browser/Scraper/Proxy",
+	"private": true,
+	"version": "X0:2021-11-11",
+	"module": "./stealth/index.mjs",
+	"bin": {
+		"browser": "./browser/browser.mjs",
+		"covert": "./covert/covert.mjs",
+		"stealth": "./stealth/stealth.mjs"
+	},
+	"scripts": {
+		"lint": "npx eslint ./base ./browser ./covert ./stealth",
+		"postinstall": "node ./make.mjs build",
+		"clean": "node ./make.mjs clean",
+		"clean:base": "node ./base/make.mjs clean",
+		"clean:browser": "node ./browser/make.mjs clean",
+		"clean:covert": "node ./covert/make.mjs clean",
+		"clean:stealth": "node ./stealth/make.mjs clean",
+		"build": "node ./make.mjs build",
+		"build:base": "node ./base/make.mjs build",
+		"build:browser": "node ./browser/make.mjs build",
+		"build:covert": "node ./covert/make.mjs build",
+		"build:stealth": "node ./stealth/make.mjs build"
+	},
+	"exports": {
+		"./base": {
+			"import": "./base/index.mjs",
+			"browser": "./base/build/browser.mjs",
+			"node": "./base/build/node.mjs"
+		},
+		"./browser": {
+			"browser": "./browser/index.mjs"
+		},
+		"./covert": {
+			"import": "./covert/index.mjs"
+		},
+		"./stealth": {
+			"import": "./stealth/index.mjs"
+		}
+	},
+	"devDependencies": {
+		"@babel/eslint-parser": "^7.15.8",
+		"eslint": "^8.1.0"
+	}
+}

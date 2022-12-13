@@ -1,0 +1,108 @@
+
+@import url("./common/index.css");
+@import url("./common/theme.css");
+
+@import url("./appbar/Address.css");
+@import url("./appbar/History.css");
+@import url("./appbar/Mode.css");
+@import url("./appbar/Settings.css");
+@import url("./appbar/Splitter.css");
+
+@import url("./backdrop/Tabs.css");
+@import url("./backdrop/Webview.css");
+
+@import url("./sheet/Console.css");
+@import url("./sheet/Session.css");
+@import url("./sheet/Site.css");
+
+@import url("./menu/Context.css");
+@import url("./menu/Help.css");
+
+
+
+/*
+ * App Layers
+ */
+
+base-console                               { z-index:   255 !important; }
+base-console.active ~ browser-appbar       { z-index:   254 !important; }
+
+browser-appbar                             { z-index:   512; }
+browser-appbar browser-appbar-history      { z-index: unset; }
+browser-appbar browser-appbar-address      { z-index: unset; }
+browser-appbar browser-appbar-mode         { z-index: unset; }
+browser-appbar browser-appbar-settings     { z-index: unset; }
+browser-appbar button[data-key="splitter"] { z-index:   256; } /* only on mobile */
+browser-appbar browser-appbar-splitter     { z-index:   255; } /* only on mobile */
+browser-backdrop                           { z-index:     0; }
+browser-backdrop browser-backdrop-webview  { z-index:     1; }
+browser-backdrop browser-backdrop-tabs     { z-index:   128; }
+browser-sheet                              { z-index:   256; }
+browser-sheet browser-sheet-session        { z-index:   257; }
+browser-sheet browser-sheet-site           { z-index:   257; }
+browser-sheet browser-sheet-console        { z-index:   511; } /* only on ?debug=true */
+browser-menu                               { z-index:  1024; }
+browser-menu browser-menu-context          { z-index:  1025; }
+browser-menu browser-menu-help             { z-index:  1026; }
+
+
+body {
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	color: var(--layout-default-color);
+	background: var(--layout-default-background);
+}
+
+browser-appbar {
+	display: block;
+	position: fixed;
+	width: auto;
+	height: auto;
+	height: 33px;
+	line-height: 32px;
+	top: 0px;
+	right: 0px;
+	bottom: auto;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+	border: 0px solid transparent;
+	border-bottom: 1px solid var(--surface-default-color);
+	background: var(--surface-default-background);
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+
+browser-backdrop {
+	display: block;
+	position: relative;
+}
+
+browser-backdrop-tabs {
+	top: calc(32px + 1px);
+}
+
+browser-backdrop-webview {
+	top: calc(32px + 1px);
+}
+
+browser-sheet {
+	display: block;
+	position: relative;
+}
+
+browser-menu {
+	display: block;
+	position: relative;
+}
+
+
+
+@media screen and (max-width: 412px) {
+
+	browser-backdrop-tabs {
+		top: calc(64px + 1px);
+	}
+
+}

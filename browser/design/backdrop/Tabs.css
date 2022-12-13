@@ -1,0 +1,142 @@
+
+browser-backdrop-tabs {
+	display: block;
+	position: fixed;
+	width: auto;
+	height: auto;
+	top: 0px;
+	right: auto;
+	bottom: 0px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+	color: var(--layout-default-color);
+	font-family: 'vera-mono';
+	background: var(--surface-default-foreground);
+	border: 0px solid transparent;
+	border-right: 1px solid var(--surface-default-color);
+	transform: translate(-100%, 0%);
+	transition: 200ms transform ease-out;
+	user-select: none;
+	-webkit-user-select: none;
+	overflow-x: hidden;
+	overflow-y: auto;
+	scrollbar-color: var(--scrollbar-default-color) var(--scrollbar-default-background);
+	scrollbar-width: auto;
+}
+
+browser-backdrop-tabs.active {
+	transform: translate(0%, 0%);
+}
+
+browser-backdrop-tabs::-webkit-scrollbar {
+	width: 16px;
+	border: 0px solid transparent;
+	background: var(--scrollbar-default-background);
+}
+
+browser-backdrop-tabs::-webkit-scrollbar-thumb {
+	width: 16px;
+	border: 0px solid transparent;
+	border-radius: 2px;
+	background: var(--scrollbar-default-color);
+}
+
+browser-backdrop-tabs button {
+	display: block;
+	min-width: 32px;
+	width: 100%;
+	height: 32px;
+	margin: 0px;
+	padding: 0px 8px 0px 0px;
+	line-height: 24px;
+	color: var(--element-default-color);
+	font-family: 'vera-mono';
+	font-size: 16px;
+	text-align: left;
+	text-overflow: ellipsis;
+	background: var(--element-default-background);
+	border: 1px solid transparent;
+	border-radius: 0px;
+	box-sizing: border-box;
+	transition: 200ms all ease-out;
+	vertical-align: middle;
+	overflow: hidden;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	outline: none;
+	cursor: pointer;
+}
+
+browser-backdrop-tabs button:before {
+	display: inline-block;
+	width: 30px;
+	height: auto;
+	margin: 0px 1px 0px 0px;
+	padding: 0px;
+	content: '\e157';
+	font-family: 'icon';
+	font-size: 24px;
+	text-align: center;
+	vertical-align: middle;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+browser-backdrop-tabs button:focus,
+browser-backdrop-tabs button:hover {
+	color: var(--element-focus-color);
+	background: var(--element-focus-background);
+	border-top: 1px solid var(--element-focus-color);
+	border-bottom: 1px solid var(--element-focus-color);
+	outline: none;
+}
+
+browser-backdrop-tabs button.active {
+	color: var(--element-active-color);
+	background: var(--element-active-background);
+	border-top: 1px solid var(--element-active-color);
+	border-bottom: 1px solid var(--element-active-color);
+}
+
+browser-backdrop-tabs button.active:first-of-type {
+	border-top: 1px solid transparent;
+}
+
+browser-backdrop-tabs button::-moz-focus-inner {
+	border: 0px solid transparent;
+}
+
+browser-backdrop-tabs button[title^="file:"]:before    { content: '\e84f'; }
+browser-backdrop-tabs button[title^="ftps:"]:before    { content: '\e897'; }
+browser-backdrop-tabs button[title^="ftp:"]:before     { content: '\e898'; }
+browser-backdrop-tabs button[title^="https:"]:before   { content: '\e897'; }
+browser-backdrop-tabs button[title^="http:"]:before    { content: '\e898'; }
+browser-backdrop-tabs button[title^="wss:"]:before     { content: '\e897'; }
+browser-backdrop-tabs button[title^="ws:"]:before      { content: '\e898'; }
+browser-backdrop-tabs button[title^="socks:"]:before   { content: '\e32a'; }
+
+browser-backdrop-tabs button[title^="stealth:blank"]:before    { content: '\e32a'; }
+browser-backdrop-tabs button[title^="stealth:welcome"]:before  { content: '\e80c'; }
+browser-backdrop-tabs button[title^="stealth:debug"]:before    { content: '\e868'; }
+browser-backdrop-tabs button[title^="stealth:history"]:before  { content: '\e889'; }
+browser-backdrop-tabs button[title^="stealth:media"]:before    { content: '\e038'; }
+browser-backdrop-tabs button[title^="stealth:search"]:before   { content: '\e52e'; }
+browser-backdrop-tabs button[title^="stealth:settings"]:before { content: '\e8b8'; }
+
+browser-backdrop-tabs button[title^="stealth:fix-connection"]:before { content: '\e869'; }
+browser-backdrop-tabs button[title^="stealth:fix-host"]:before       { content: '\e869'; }
+browser-backdrop-tabs button[title^="stealth:fix-mode"]:before       { content: '\e869'; }
+
+
+
+@media screen and (max-width: 640px) {
+
+	browser-backdrop-tabs {
+		right: 0px;
+		border: 0px solid transparent;
+	}
+
+}
+

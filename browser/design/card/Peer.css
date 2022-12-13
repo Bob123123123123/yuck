@@ -1,0 +1,131 @@
+
+browser-card-peer {
+	all: unset;
+	display: block;
+	position: relative;
+	width: 800px;
+	max-height: 64px;
+	margin: 0px;
+	padding: 16px;
+	background: var(--surface-default-background);
+	border: 1px solid var(--surface-default-color);
+	border-radius: 8px;
+	box-sizing: border-box;
+	transition: 200ms all ease-out;
+	overflow: hidden;
+	cursor: default;
+}
+
+browser-card-peer.active {
+	max-height: unset;
+}
+
+browser-card-peer > h3 {
+	display: block;
+	margin: 0px 0px 16px 0px;
+	padding: 0px;
+}
+
+browser-card-peer > h3:before {
+	display: inline;
+	content: '\e1e2';
+	margin: 0px 16px 0px 0px;
+	padding: 0px;
+	font-family: 'icon';
+	font-size: 24px;
+	font-weight: 400;
+	text-align: center;
+	vertical-align: middle;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+browser-card-peer > h3 input[type="text"] {
+	display: inline-block;
+	width: calc(100% - 32px - 32px - 24px);
+	font-family: 'vera-mono';
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 32px;
+}
+
+browser-card-peer > button[data-action="toggle"] {
+	display: block;
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	bottom: auto;
+	left: auto;
+}
+
+browser-card-peer > button[data-action="toggle"]:before {
+	content: '\e5c5';
+	transition: 200ms transform ease-out;
+}
+
+browser-card-peer > button[data-action="toggle"].active:before {
+	transform: rotate(180deg);
+	transition: 200ms transform ease-out;
+}
+
+
+
+browser-card-peer-article {
+	display: none;
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+browser-card-peer.active browser-card-peer-article {
+	display: block;
+}
+
+browser-card-peer-article > button[data-key="peer.connection"][data-val="offline"]:before   { color: var(--element-default-color); content: '\e8be'; }
+browser-card-peer-article > button[data-key="peer.connection"][data-val="mobile"]:before    { color: var(--element-active-color);  content: '\e1b9'; }
+browser-card-peer-article > button[data-key="peer.connection"][data-val="broadband"]:before { color: var(--element-active-color);  content: '\e1ba'; }
+browser-card-peer-article > button[data-key="peer.connection"][data-val="peer"]:before      { color: var(--element-active-color);  content: '\e1e2'; }
+browser-card-peer-article > button[data-key="peer.connection"][data-val="tor"]:before       { color: var(--element-active-color);  content: '\e32a'; }
+
+browser-card-peer-article > span {
+	display: inline-block;
+	margin: 0px 16px 0px 0px;
+	font-family: 'museo';
+	font-size: 16px;
+	line-height: 32px;
+	vertical-align: middle;
+}
+
+
+
+browser-card-peer-footer {
+	display: none;
+	height: 32px;
+	margin: 16px 0px 0px 0px;
+	padding: 0px;
+	text-align: right;
+}
+
+browser-card-peer.active browser-card-peer-footer {
+	display: block;
+}
+
+browser-card-peer-footer > button {
+	margin-left: 16px;
+}
+
+browser-card-peer-footer > button[data-action="create"]:before  { content: '\e145'; }
+browser-card-peer-footer > button[data-action="refresh"]:before { content: '\e5d5'; }
+browser-card-peer-footer > button[data-action="remove"]:before  { content: '\e14c'; }
+browser-card-peer-footer > button[data-action="save"]:before    { content: '\e876'; }
+
+
+
+@media screen and (max-width: 800px) {
+
+	browser-card-peer {
+		width: auto;
+	}
+
+}
+

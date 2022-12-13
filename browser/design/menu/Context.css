@@ -1,0 +1,107 @@
+
+browser-menu-context {
+	display: block;
+	position: fixed;
+	min-width: 128px;
+	width: auto;
+	height: auto;
+	top: auto;
+	right: auto;
+	bottom: auto;
+	left: auto;
+	margin: 0px;
+	padding: 0px;
+	color: var(--element-default-color);
+	text-align: left;
+	background: var(--layout-default-background);
+	border: 1px solid var(--surface-default-color);
+	border-radius: 4px;
+	box-sizing: border-box;
+	transform: translate(-50%, -16px);
+	transition: 200ms opacity ease-out;
+	user-select: none;
+	-webkit-user-select: none;
+	pointer-events: none;
+	opacity: 0;
+}
+
+browser-menu-context.active {
+	pointer-events: auto;
+	opacity: 1;
+}
+
+browser-menu-context button {
+	display: block;
+	min-width: 32px;
+	width: 100%;
+	margin: 0px;
+	padding: 0px 8px;
+	line-height: 30px;
+	height: 32px;
+	color: var(--element-default-color);
+	font-family: 'vera-mono';
+	font-size: 16px;
+	text-align: left;
+	background: var(--element-default-background);
+	border: 1px solid transparent;
+	border-radius: 4px;
+	box-sizing: border-box;
+	transition: 200ms all ease-out;
+	vertical-align: middle;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	outline: none;
+	cursor: pointer;
+}
+
+browser-menu-context button:before {
+	display: inline-block;
+	width: 1em;
+	height: auto;
+	margin: 0px 8px 0px 0px;
+	padding: 0px;
+	content: '\e315';
+	font-family: 'icon';
+	font-size: 24px;
+	text-align: center;
+	vertical-align: top;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+browser-menu-context button:focus,
+browser-menu-context button:hover {
+	color: var(--element-focus-color);
+	border: 1px solid var(--element-focus-color);
+	background: var(--element-focus-background);
+	outline: none;
+}
+
+browser-menu-context button.active {
+	color: var(--element-active-color);
+	border: 1px solid var(--element-active-color);
+	background: var(--element-active-background);
+	outline: none;
+}
+
+browser-menu-context button::-moz-focus-inner {
+	border: 0px solid transparent;
+}
+
+browser-menu-context button[data-icon="back"]:before     { content: '\e5c4'; }
+browser-menu-context button[data-icon="default"]:before  { content: '\e315'; }
+browser-menu-context button[data-icon="close"]:before    { content: '\e5cd'; }
+browser-menu-context button[data-icon="confirm"]:before  { content: '\e5ca'; }
+browser-menu-context button[data-icon="copy"]:before     { content: '\e14d'; }
+browser-menu-context button[data-icon="download"]:before { content: '\e2c4'; }
+browser-menu-context button[data-icon="focus"]:before    { content: '\e3dc'; }
+browser-menu-context button[data-icon="next"]:before     { content: '\e5c8'; }
+browser-menu-context button[data-icon="open"]:before     { content: '\e89e'; }
+browser-menu-context button[data-icon="paste"]:before    { content: '\e14f'; }
+browser-menu-context button[data-icon="pause"]:before    { content: '\e034'; }
+browser-menu-context button[data-icon="refresh"]:before  { content: '\e5d5'; }
+browser-menu-context button[data-icon="read"]:before     { content: '\e5d5'; }
+browser-menu-context button[data-icon="remove"]:before   { content: '\e5cd'; }
+browser-menu-context button[data-icon="save"]:before     { content: '\e5ca'; }
+

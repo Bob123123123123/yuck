@@ -1,0 +1,70 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true
+	},
+	"extends": "eslint:recommended",
+	"parser": "@babel/eslint-parser",
+	"parserOptions": {
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"requireConfigFile": false
+	},
+	"overrides": [{
+		"files": [ "*.mjs" ],
+		"rules": {}
+	}, {
+		"files": [ "build/browser.mjs" ],
+		"rules": {
+			"no-undef": "off"
+		}
+	}, {
+		"files": [ "build/node.mjs" ],
+		"globals": {
+			"global": true,
+			"window": true
+		},
+		"rules": {
+			"no-control-regex": "off",
+			"no-undef": "off"
+		}
+	}, {
+		"files": [ "source/node/console.mjs" ],
+		"rules": { "no-control-regex": "off" }
+	}, {
+		"files": [ "source/MODULE.mjs" ],
+		"globals": {
+			"console": true,
+			"Buffer":  true,
+			"Emitter": true
+		}
+	}],
+	"rules": {
+		"arrow-parens": [
+			"error",
+			"always"
+		],
+		"indent": [
+			"error",
+			"tab"
+		],
+		"linebreak-style": [
+			"error",
+			"unix"
+		],
+		"no-unused-vars": [
+			"error", {
+				"argsIgnorePattern": "^(assert)$"
+			}
+		],
+		"quotes": [
+			"error",
+			"single"
+		],
+		"semi": [
+			"error",
+			"always"
+		]
+	}
+}

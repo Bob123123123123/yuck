@@ -1,0 +1,143 @@
+
+@import url("./Tab.css");
+
+
+
+browser-card-session {
+	all: unset;
+	display: block;
+	position: relative;
+	width: 800px;
+	max-height: 64px;
+	margin: 0px;
+	padding: 16px;
+	background: var(--surface-default-background);
+	border: 1px solid var(--surface-default-color);
+	border-radius: 8px;
+	box-sizing: border-box;
+	transition: 200ms all ease-out;
+	overflow: hidden;
+	cursor: default;
+}
+
+browser-card-session.active {
+	max-height: unset;
+}
+
+browser-card-session > h3 {
+	display: block;
+	height: 32px;
+	margin: 0px 0px 16px 0px;
+	padding: 0px;
+	line-height: 32px;
+	font-family: 'vera-mono';
+	font-size: 16px;
+	font-weight: 400;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+browser-card-session > h3:before {
+	display: inline;
+	content: '\e335';
+	margin: 0px 16px 0px 0px;
+	padding: 0px;
+	font-family: 'icon';
+	font-size: 24px;
+	font-weight: 400;
+	text-align: center;
+	vertical-align: top;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+browser-card-session > h3 span {
+	font-size: 16px;
+	text-transform: none;
+}
+
+browser-card-session > button[data-action="toggle"] {
+	display: block;
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	bottom: auto;
+	left: auto;
+}
+
+browser-card-session > button[data-action="toggle"]:before {
+	content: '\e5c5';
+	transition: 200ms transform ease-out;
+}
+
+browser-card-session > button[data-action="toggle"].active:before {
+	transform: rotate(180deg);
+	transition: 200ms transform ease-out;
+}
+
+
+
+browser-card-session-header {
+	display: none;
+	width: 100%;
+	height: auto;
+	margin: 0px 0px 16px 0px;
+}
+
+browser-card-session.active browser-card-session-header {
+	display: block;
+}
+
+browser-card-session-header > code {
+	display: inline-block;
+	margin: 0px;
+	padding: 4px;
+	font-family: 'vera-mono';
+	color: var(--layout-default-color);
+	background: var(--layout-default-background);
+	border-radius: 4px;
+}
+
+
+
+browser-card-session-article {
+	display: none;
+	width: 100%;
+	height: auto;
+}
+
+browser-card-session.active browser-card-session-article {
+	display: block;
+}
+
+browser-card-session-article > browser-card-tab {
+	width: 100%;
+	margin: 0px 0px 16px 0px;
+}
+
+
+
+browser-card-session-footer {
+	display: none;
+	height: 32px;
+	margin: 16px 0px 0px 0px;
+	padding: 0px;
+	text-align: right;
+}
+
+browser-card-session.active browser-card-session-footer {
+	display: block;
+}
+
+browser-card-session-footer > button[data-action="remove"]:before { content: '\e14c'; }
+
+
+
+@media screen and (max-width: 800px) {
+
+	browser-card-settings {
+		width: auto;
+	}
+
+}
+

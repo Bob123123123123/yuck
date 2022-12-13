@@ -1,0 +1,162 @@
+
+@import url("./Beacon.css");
+@import url("./Blocker.css");
+@import url("./Echo.css");
+@import url("./Host.css");
+@import url("./Mode.css");
+@import url("./Peer.css");
+@import url("./Policy.css");
+@import url("./Redirect.css");
+@import url("./Session.css");
+
+
+
+browser-card-settings {
+	all: unset;
+	display: block;
+	position: relative;
+	width: 800px;
+	max-height: 64px;
+	margin: 0px;
+	padding: 16px;
+	background: var(--surface-default-background);
+	border: 1px solid var(--surface-default-color);
+	border-radius: 8px;
+	box-sizing: border-box;
+	transition: 200ms all ease-out;
+	overflow: hidden;
+	cursor: default;
+}
+
+browser-card-settings.active {
+	max-height: unset;
+}
+
+browser-card-settings > h3 {
+	display: block;
+	margin: 0px;
+	padding: 0px 0px 16px 0px;
+	font-family: 'crystalline';
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 32px;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+browser-card-settings > button[data-action="toggle"] {
+	display: block;
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	bottom: auto;
+	left: auto;
+}
+
+browser-card-settings > button[data-action="toggle"]:before {
+	content: '\e5c5';
+	transition: 200ms transform ease-out;
+}
+
+browser-card-settings > button[data-action="toggle"].active:before {
+	transform: rotate(180deg);
+	transition: 200ms transform ease-out;
+}
+
+
+
+browser-card-settings-header {
+	display: none;
+	width: 100%;
+	height: auto;
+}
+
+browser-card-settings.active browser-card-settings-header {
+	display: block;
+}
+
+browser-card-settings-header > input[data-key="domain"] {
+	display: block;
+	width: 100%;
+	margin: 0px auto 16px auto;
+	text-align: center;
+}
+
+browser-card-settings-header > p {
+	margin: 0px 0px 16px 0px;
+	font-family: 'museo';
+	font-size: 16px;
+	text-align: center;
+}
+
+
+
+browser-card-settings-article {
+	display: none;
+	width: 100%;
+	height: auto;
+}
+
+browser-card-settings.active browser-card-settings-article {
+	display: block;
+}
+
+browser-card-settings-article > h4 {
+	display: block;
+	position: relative;
+	height: 32px;
+	line-height: 32px;
+	margin: 16px 0px 16px 0px;
+	padding: 0px 0px 0px 0px;
+	font-family: 'crystalline';
+	font-size: 24px;
+	font-weight: 500;
+	text-transform: uppercase;
+	vertical-align: middle;
+	border-bottom: 1px solid var(--surface-default-color);
+}
+
+browser-card-settings-article > h4 button[data-action="remove"] {
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: auto;
+	left: auto;
+}
+
+browser-card-settings-article > h4 button[data-action="remove"]:before {
+	content: '\e14c';
+}
+
+browser-card-settings-article > * {
+	width: 100% !important;
+	margin: 0px 0px 16px 0px !important;
+}
+
+
+
+browser-card-settings-footer {
+	display: none;
+	height: 32px;
+	margin: 16px 0px 0px 0px;
+	padding: 0px;
+	text-align: right;
+}
+
+browser-card-settings.active browser-card-settings-footer {
+	display: block;
+}
+
+browser-card-settings-footer > button[data-action="refresh"]:before { content: '\e5d5'; }
+
+
+
+@media screen and (max-width: 800px) {
+
+	browser-card-settings {
+		width: auto;
+	}
+
+}
+

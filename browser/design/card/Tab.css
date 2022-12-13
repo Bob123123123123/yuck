@@ -1,0 +1,267 @@
+
+browser-card-tab {
+	all: unset;
+	display: block;
+	position: relative;
+	width: 800px;
+	max-height: 64px;
+	margin: 0px;
+	padding: 16px;
+	background: var(--surface-default-background);
+	border: 1px solid var(--surface-default-color);
+	border-radius: 8px;
+	box-sizing: border-box;
+	transition: 200ms all ease-out;
+	overflow: hidden;
+	cursor: default;
+}
+
+browser-card-tab.active {
+	max-height: unset;
+}
+
+browser-card-tab > h3 {
+	display: block;
+	height: 32px;
+	margin: 0px 0px 16px 0px;
+	padding: 0px;
+	line-height: 32px;
+	font-family: 'vera-mono';
+	font-size: 16px;
+	font-weight: 400;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+browser-card-tab > h3:before {
+	display: inline;
+	content: '\e889';
+	margin: 0px 16px 0px 0px;
+	padding: 0px;
+	font-family: 'icon';
+	font-size: 24px;
+	font-weight: 400;
+	text-align: center;
+	vertical-align: top;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+browser-card-tab > button[data-action="toggle"] {
+	display: block;
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	bottom: auto;
+	left: auto;
+}
+
+browser-card-tab > button[data-action="toggle"]:before {
+	content: '\e5c5';
+	transition: 200ms transform ease-out;
+}
+
+browser-card-tab > button[data-action="toggle"].active:before {
+	transform: rotate(180deg);
+	transition: 200ms transform ease-out;
+}
+
+
+
+browser-card-tab-header {
+	display: none;
+	position: relative;
+	width: 100%;
+	margin: 16px 0px 32px 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+browser-card-tab.active browser-card-tab-header {
+	display: block;
+}
+
+browser-card-tab-header > button[data-action="back"] {
+	display: block;
+	position: absolute;
+	top: 17px;
+	right: auto;
+	bottom: auto;
+	left: 0px;
+}
+
+browser-card-tab-header > button[data-action="back"]:before {
+	content: '\e5c4';
+}
+
+browser-card-tab-header > button[data-action="next"] {
+	display: block;
+	position: absolute;
+	top: 17px;
+	right: 0px;
+	bottom: auto;
+	left: auto;
+}
+
+browser-card-tab-header > button[data-action="next"]:before {
+	content: '\e5c8';
+}
+
+browser-card-tab-header-history {
+	display: block;
+	position: relative;
+	width: calc(100% - 64px);
+	/* height: calc(64px + 16px + 4px); */
+	line-height: 64px;
+	margin: 0px auto;
+	padding: 0px;
+	border: 1px solid var(--surface-default-color);
+	border-radius: 8px;
+	vertical-align: middle;
+	white-space: nowrap;
+	box-sizing: border-box;
+	text-align: center;
+	transition: 200ms all ease-out;
+	overflow-x: auto;
+	overflow-y: hidden;
+	cursor: default;
+}
+
+browser-card-tab-header-history > button {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	margin: 16px 16px 16px 0px;
+	padding: 0px;
+	border: 1px solid var(--element-default-color);
+	box-sizing: border-box;
+}
+
+browser-card-tab-header-history > button:first-of-type {
+	margin-left: 16px;
+}
+
+browser-card-tab-header-history > button.active {
+	color: var(--element-active-color);
+}
+
+browser-card-tab-header-history > button[title^="file:"]:before                  { content: '\e84f'; }
+browser-card-tab-header-history > button[title^="ftps:"]:before                  { content: '\e897'; }
+browser-card-tab-header-history > button[title^="ftp:"]:before                   { content: '\e898'; }
+browser-card-tab-header-history > button[title^="https:"]:before                 { content: '\e897'; }
+browser-card-tab-header-history > button[title^="http:"]:before                  { content: '\e898'; }
+browser-card-tab-header-history > button[title^="wss:"]:before                   { content: '\e897'; }
+browser-card-tab-header-history > button[title^="ws:"]:before                    { content: '\e898'; }
+browser-card-tab-header-history > button[title^="socks:"]:before                 { content: '\e32a'; }
+browser-card-tab-header-history > button[title^="stealth:blank"]:before          { content: '\e32a'; }
+browser-card-tab-header-history > button[title^="stealth:welcome"]:before        { content: '\e80c'; }
+browser-card-tab-header-history > button[title^="stealth:debug"]:before          { content: '\e868'; }
+browser-card-tab-header-history > button[title^="stealth:history"]:before        { content: '\e889'; }
+browser-card-tab-header-history > button[title^="stealth:media"]:before          { content: '\e038'; }
+browser-card-tab-header-history > button[title^="stealth:search"]:before         { content: '\e52e'; }
+browser-card-tab-header-history > button[title^="stealth:settings"]:before       { content: '\e8b8'; }
+browser-card-tab-header-history > button[title^="stealth:fix-connection"]:before { content: '\e869'; }
+browser-card-tab-header-history > button[title^="stealth:fix-host"]:before       { content: '\e869'; }
+browser-card-tab-header-history > button[title^="stealth:fix-mode"]:before       { content: '\e869'; }
+
+
+
+browser-card-tab-article {
+	display: none;
+	margin: 0px auto;
+	padding: 0px;
+	width: 320px;
+	max-height: 0px;
+	box-sizing: border-box;
+	text-align: center;
+	transition: 200ms all ease-out;
+	overflow: hidden;
+}
+
+browser-card-tab.active browser-card-tab-article {
+	display: block;
+}
+
+browser-card-tab-article.active {
+	max-height: unset;
+}
+
+browser-card-tab-article > button[data-key="history.mode.text"]:before  { content: '\e06f'; }
+browser-card-tab-article > button[data-key="history.mode.image"]:before { content: '\e432'; }
+browser-card-tab-article > button[data-key="history.mode.audio"]:before { content: '\e049'; }
+browser-card-tab-article > button[data-key="history.mode.video"]:before { content: '\e404'; }
+browser-card-tab-article > button[data-key="history.mode.other"]:before { content: '\e048'; }
+browser-card-tab-article > button[data-val="true"]                      { color: var(--element-active-color); }
+browser-card-tab-article > button[data-val="true"]:hover                { color: var(--element-active-color); }
+
+browser-card-tab-article > code,
+browser-card-tab-article > div code {
+	display: block;
+	margin: 0px;
+	padding: 4px;
+	font-family: 'vera-mono';
+	color: var(--layout-default-color);
+	background: var(--layout-default-background);
+	border-radius: 4px;
+}
+
+browser-card-tab-article > div {
+	margin: 0px 0px 0.5em 0px;
+}
+
+browser-card-tab-article > div:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+
+browser-card-tab-article > div code[data-key="history.date"] {
+	display: inline-block;
+	float: left;
+	margin: 0px 1em 0px 0px;
+}
+
+browser-card-tab-article > div code[data-key="history.time"] {
+	display: inline-block;
+	float: right;
+	margin: 0px;
+}
+
+browser-card-tab-article > code[data-key="history.link"] {
+	display: block;
+	margin: 0px 0px 0.5em 0px;
+	text-align: left;
+	white-space: pre;
+	overflow: auto;
+}
+
+
+
+browser-card-tab-footer {
+	display: none;
+	height: 32px;
+	margin: 16px 0px 0px 0px;
+	padding: 0px;
+	text-align: right;
+}
+
+browser-card-tab.active browser-card-tab-footer {
+	display: block;
+}
+
+browser-card-tab-footer > button {
+	margin-left: 16px;
+}
+
+browser-card-tab-footer > button[data-action="remove"]:before { content: '\e14c'; }
+
+
+
+@media screen and (max-width: 800px) {
+
+	browser-card-tab {
+		width: auto;
+	}
+
+}
+

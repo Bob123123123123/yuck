@@ -1,0 +1,166 @@
+
+browser-card-internet {
+	all: unset;
+	display: block;
+	position: relative;
+	width: 800px;
+	max-height: 64px;
+	margin: 0px;
+	padding: 16px;
+	background: var(--surface-default-background);
+	border: 1px solid var(--surface-default-color);
+	border-radius: 8px;
+	box-sizing: border-box;
+	transition: 200ms all ease-out;
+	overflow: hidden;
+	cursor: default;
+}
+
+browser-card-internet.active {
+	max-height: unset;
+}
+
+browser-card-internet > h3 {
+	display: block;
+	margin: 0px;
+	padding: 0px 0px 16px 0px;
+	font-family: 'crystalline';
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 32px;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+browser-card-internet > button[data-action="toggle"] {
+	display: block;
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	bottom: auto;
+	left: auto;
+}
+
+browser-card-internet > button[data-action="toggle"]:before {
+	content: '\e5c5';
+	transition: 200ms transform ease-out;
+}
+
+browser-card-internet > button[data-action="toggle"].active:before {
+	transform: rotate(180deg);
+	transition: 200ms transform ease-out;
+}
+
+
+
+browser-card-internet-article {
+	display: none;
+	width: 100%;
+	height: auto;
+}
+
+browser-card-internet.active browser-card-internet-article {
+	display: block;
+}
+
+browser-card-internet-article > h4 {
+	display: block;
+	margin: 32px 0px 16px 0px;
+	padding: 0px 0px 0px 0px;
+	font-family: 'crystalline';
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 24px;
+	text-transform: uppercase;
+	vertical-align: middle;
+	border-bottom: 1px solid var(--surface-default-color);
+}
+
+browser-card-internet-article > h4:nth-of-type(1) {
+	margin-top: 16px;
+}
+
+browser-card-internet-article > p {
+	margin: 0px 0px 16px 0px;
+	font-family: 'museo';
+	font-size: 16px;
+	text-align: justify;
+}
+
+browser-card-internet-article > ul {
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+browser-card-internet-article > ul li {
+	display: block;
+	width: 416px;
+	margin: 0px auto;
+	padding: 0px;
+	line-height: 32px;
+	vertical-align: middle;
+}
+
+browser-card-internet-article > ul li label {
+	margin: 0px 0px 0px 8px;
+	padding: 0px;
+	color: var(--element-default-color);
+	font-family: 'museo';
+	font-size: 16px;
+	line-height: 32px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+browser-card-internet-article > ul li input[type="radio"][name="connection"][value="mobile"]:before         { content: '\e1b9'; }
+browser-card-internet-article > ul li input[type="radio"][name="connection"][value="broadband"]:before      { content: '\e1ba'; }
+browser-card-internet-article > ul li input[type="radio"][name="connection"][value="peer"]:before           { content: '\e1e2'; }
+browser-card-internet-article > ul li input[type="radio"][name="connection"][value="tor"]:before            { content: '\e32a'; }
+browser-card-internet-article > ul li input[type="radio"][name="history"][value="stealth"]:before           { content: '\e32a'; }
+browser-card-internet-article > ul li input[type="radio"][name="history"][value="day"]:before               { content: '\e889'; }
+browser-card-internet-article > ul li input[type="radio"][name="history"][value="week"]:before              { content: '\e916'; }
+browser-card-internet-article > ul li input[type="radio"][name="history"][value="month"]:before             { content: '\e916'; }
+browser-card-internet-article > ul li input[type="radio"][name="history"][value="forever"]:before           { content: '\eb3d'; }
+browser-card-internet-article > ul li input[type="radio"][name="useragent"][value="stealth"]:before         { content: '\e32a'; }
+browser-card-internet-article > ul li input[type="radio"][name="useragent"][value="browser-mobile"]:before  { content: '\e324'; }
+browser-card-internet-article > ul li input[type="radio"][name="useragent"][value="browser-desktop"]:before { content: '\e30a'; }
+browser-card-internet-article > ul li input[type="radio"][name="useragent"][value="spider-mobile"]:before   { content: '\e335'; }
+browser-card-internet-article > ul li input[type="radio"][name="useragent"][value="spider-desktop"]:before  { content: '\e335'; }
+
+browser-card-internet-article > ul li input[type="radio"]:focus + label,
+browser-card-internet-article > ul li input[type="radio"]:hover + label {
+	color: var(--element-focus-color);
+}
+
+browser-card-internet-article > ul li input[type="radio"]:checked + label {
+	color: var(--element-active-color);
+}
+
+
+
+browser-card-internet-footer {
+	display: none;
+	height: 32px;
+	margin: 16px 0px 0px 0px;
+	padding: 0px;
+	text-align: right;
+}
+
+browser-card-internet.active browser-card-internet-footer {
+	display: block;
+}
+
+browser-card-internet-footer > button[data-action="save"]:before { content: '\e876'; }
+
+
+
+@media screen and (max-width: 800px) {
+
+	browser-card-internet {
+		width: auto;
+	}
+
+}
+

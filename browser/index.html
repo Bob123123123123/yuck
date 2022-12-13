@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Tholian Stealth</title>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Security-Policy" content="worker-src 'self'; script-src 'self' 'unsafe-inline'; frame-src 'self'">
+		<meta name="application-name" content="Tholian Stealth">
+		<meta name="theme-color" content="#000000">
+		<meta name="viewport" content="initial-scale=1, user-scalable=no">
+		<link rel="manifest" href="index.webmanifest">
+
+		<link rel="shortcut icon" href="design/common/tholian.ico">
+		<link rel="icon" type="image/svg+xml" sizes="any" href="design/common/tholian.svg">
+		<link rel="apple-touch-icon" sizes="180x180" href="design/common/tholian-apple.png">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-title" content="Tholian Stealth">
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- Browser UI -->
+		<link rel="stylesheet" href="design/index.css">
+	</head>
+	<body data-theme="dark">
+		<!-- Browser PWA -->
+		<script type="module">
+
+			import { console     } from './extern/base.mjs';
+			import { ENVIRONMENT } from './source/ENVIRONMENT.mjs';
+			import { URL         } from './source/parser/URL.mjs';
+			import { Browser     } from './source/Browser.mjs';
+			import { dispatch    } from './design/index.mjs';
+
+
+
+			window.onerror = (err) => {
+				console.error(err);
+			};
+
+
+			console.log('Browser: Initializing ...');
+
+			// BROWSER has to be global for internal pages
+			const browser = window.BROWSER = new Browser({
+				host:  ENVIRONMENT.hostname,
+				debug: ENVIRONMENT.flags.debug
+			});
+
+			setTimeout(() => {
+				dispatch(window, browser, true);
+			}, 100);
+
+			setTimeout(() => {
+
+				if (ENVIRONMENT.flags.debug === true && URL.isURL(ENVIRONMENT.flags.url) === true) {
+
+					console.info('Browser: Debug Mode active');
+
+					browser.once('connect', () => {
+
+						let tab = browser.open('stealth:debug?url=' + ENVIRONMENT.flags.url.link);
+						if (tab !== null) {
+							browser.show(tab);
+						}
+
+					});
+
+				} else if (ENVIRONMENT.flags.debug === true) {
+
+					console.info('Browser: Debug Mode active');
+
+					browser.once('connect', () => {
+
+						let tab = browser.open('stealth:debug');
+						if (tab !== null) {
+							browser.show(tab);
+						}
+
+					});
+
+				} else if (URL.isURL(ENVIRONMENT.flags.url) === true) {
+
+					let tab = browser.open(ENVIRONMENT.flags.url.link);
+					if (tab !== null) {
+						browser.show(tab);
+					}
+
+				} else {
+
+					let worker = (window.navigator || {}).serviceWorker || null;
+					if (worker !== null && typeof worker.register === 'function') {
+
+						worker.register('service.js').then((service) => {
+							console.info('Browser: Service connected to http://localhost:65432.');
+						}).catch((err) => {
+							console.error('Browser: Service could not connect to http://localhost:65432.');
+						});
+
+					}
+
+				}
+
+			}, 200);
+
+			setTimeout(() => {
+
+				browser.once('connect', () => {
+
+					setTimeout(() => {
+
+						if (browser.tab === null) {
+							browser.show(browser.open(browser.settings['interface'].opentab));
+						}
+
+					}, 1000);
+
+				});
+
+				browser.on('connect', () => {
+					console.info('Browser: Connected to ws://' + ENVIRONMENT.hostname + ':65432.');
+				});
+
+				browser.on('disconnect', () => {
+					console.error('Browser: Disconnected from ws://' + ENVIRONMENT.hostname + ':65432.');
+				});
+
+				browser.on('disconnect', () => {
+
+					// console.log('Browser: Reconnecting to ws://' + ENVIRONMENT.hostname + ':65432 after ' + (browser.__state.reconnect * 30) + ' seconds ...');
+					// browser.reconnect();
+
+				});
+
+				let onbeforeunload = window['onbeforeunload'] || null;
+				if (onbeforeunload === null) {
+					onbeforeunload = window['onbeforeunload'] = () => {
+						browser.disconnect();
+					};
+				}
+
+				browser.connect();
+
+			}, 300);
+
+		</script>
+	</body>
+</html>
+

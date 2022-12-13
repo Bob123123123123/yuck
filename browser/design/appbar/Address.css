@@ -1,0 +1,182 @@
+
+browser-appbar-address {
+	display: inline-block;
+	position: relative;
+	width: auto;
+	height: 32px;
+	margin: 0px;
+	padding: 0px;
+	line-height: 32px;
+	font-family: 'vera-mono';
+	font-size: 16px;
+	text-align: center;
+	vertical-align: top;
+	overflow: hidden;
+}
+
+browser-appbar-address {
+	width: calc(100% - 32px);
+}
+
+browser-appbar-history + browser-appbar-address {
+	width: calc(100% - 128px - 160px - 128px);
+}
+
+browser-appbar-address ul {
+	display: block;
+	position: relative;
+	width: calc(100% - 64px);
+	height: 32px;
+	line-height: 32px;
+	margin: 0px 32px;
+	padding: 0px;
+	color: var(--element-default-color);
+	background: var(--surface-default-foreground);
+	vertical-align: top;
+	white-space: nowrap;
+	user-select: none;
+	-webkit-user-select: none;
+	overflow: hidden;
+	z-index: 1;
+}
+
+browser-appbar-address ul li {
+	display: inline;
+	list-style: none;
+	width: auto;
+	height: 32px;
+	margin: 0px;
+	padding: 0px;
+	line-height: 32px;
+	border: 0px solid transparent;
+	border-radius: 0px;
+	border-bottom: 2px solid transparent;
+	vertical-align: top;
+	white-space: nowrap;
+	box-sizing: border-box;
+	transition: 200ms all ease-out;
+}
+
+browser-appbar-address ul li:hover {
+	color: var(--element-focus-color);
+	border-radius: 4px 4px 0px 0px;
+	border-bottom: 2px solid var(--element-focus-color);
+	background: var(--element-focus-background);
+	cursor: text;
+}
+
+browser-appbar-address ul li[data-key="protocol"] {
+	display: inline-block;
+	color: var(--element-default-color);
+	font-size: 24px;
+	cursor: help;
+}
+
+browser-appbar-address ul li[data-key="protocol"]:hover {
+	color: var(--element-default-color);
+	border-bottom: 2px solid transparent;
+	background: transparent;
+}
+
+browser-appbar-address ul li[data-key="protocol"]:before {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	content: '\e157';
+	font-family: 'icon';
+	text-align: center;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+browser-appbar-address ul li[data-key="protocol"][data-val="file"]:before    { content: '\e84f'; }
+browser-appbar-address ul li[data-key="protocol"][data-val="ftps"]:before    { content: '\e897'; }
+browser-appbar-address ul li[data-key="protocol"][data-val="ftp"]:before     { content: '\e898'; }
+browser-appbar-address ul li[data-key="protocol"][data-val="https"]:before   { content: '\e897'; }
+browser-appbar-address ul li[data-key="protocol"][data-val="http"]:before    { content: '\e898'; }
+browser-appbar-address ul li[data-key="protocol"][data-val="wss"]:before     { content: '\e897'; }
+browser-appbar-address ul li[data-key="protocol"][data-val="ws"]:before      { content: '\e898'; }
+browser-appbar-address ul li[data-key="protocol"][data-val="socks"]:before   { content: '\e32a'; }
+
+browser-appbar-address ul li[data-key="protocol"][title="stealth:blank"]:before    { content: '\e32a'; }
+browser-appbar-address ul li[data-key="protocol"][title="stealth:welcome"]:before  { content: '\e80c'; }
+browser-appbar-address ul li[data-key="protocol"][title="stealth:debug"]:before    { content: '\e868'; }
+browser-appbar-address ul li[data-key="protocol"][title="stealth:history"]:before  { content: '\e889'; }
+browser-appbar-address ul li[data-key="protocol"][title="stealth:media"]:before    { content: '\e038'; }
+browser-appbar-address ul li[data-key="protocol"][title="stealth:schedule"]:before { content: '\e916'; }
+browser-appbar-address ul li[data-key="protocol"][title="stealth:search"]:before   { content: '\e52e'; }
+browser-appbar-address ul li[data-key="protocol"][title="stealth:settings"]:before { content: '\e8b8'; }
+
+browser-appbar-address ul li[data-key="protocol"][title="stealth:fix-connection"]:before { content: '\e869'; }
+browser-appbar-address ul li[data-key="protocol"][title="stealth:fix-host"]:before       { content: '\e869'; }
+browser-appbar-address ul li[data-key="protocol"][title="stealth:fix-mode"]:before       { content: '\e869'; }
+
+browser-appbar-address input[data-key="url"] {
+	display: block;
+	position: absolute;
+	width: calc(100% - 64px);
+	height: 32px;
+	line-height: 32px;
+	top: 0px;
+	right: 32px;
+	bottom: auto;
+	left: 32px;
+	margin: 0px;
+	padding: 0px;
+	color: var(--layout-default-color);
+	font-family: 'vera-mono';
+	font-size: 16px;
+	text-align: center;
+	background: var(--layout-default-background);
+	border: 1px solid transparent;
+	border-radius: 4px;
+	box-sizing: border-box;
+	vertical-align: middle;
+	transition: 200ms all ease-out;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	outline: none;
+	overflow: hidden;
+	opacity: 0;
+	z-index: 0;
+}
+
+browser-appbar-address input[data-key="url"].active {
+	transition: 200ms all ease-out;
+	opacity: 1;
+	z-index: 2;
+}
+
+browser-appbar-address input[data-key="url"]::selection {
+	color: var(--element-select-color);
+	border-radius: 4px;
+	background: var(--element-select-background);
+	cursor: text;
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+	browser-appbar-address {
+		width: calc(100% - 32px);
+	}
+
+	browser-appbar-history + browser-appbar-address {
+		width: calc(100% - 128px - 160px - 96px);
+	}
+
+	browser-appbar-address ul {
+		width: auto;
+		margin: 0px 0px;
+	}
+
+	browser-appbar-address input[data-key="url"] {
+		width: 100%;
+		left: 0px;
+		right: 0px;
+	}
+
+}
+

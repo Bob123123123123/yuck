@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>stealth:settings</title>
+		<style>
+
+			@import url("../design/common/index.css");
+			@import url("../design/common/theme.css");
+			@import url("../design/common/elements.css");
+			@import url("../design/common/layout.css");
+
+			@import url("../design/card/Interface.css");
+			@import url("../design/card/Internet.css");
+			@import url("../design/card/Settings.css");
+
+
+
+			body > browser-card-interface,
+			body > browser-card-internet,
+			body > browser-card-settings {
+				margin: 64px auto 0px auto;
+			}
+
+			body > *:last-of-type {
+				margin-bottom: 64px;
+			}
+
+		</style>
+	</head>
+	<body data-page="settings">
+		<article>
+			<h3>Browser Settings</h3>
+			<p>
+				Here you can configure all Browser Settings that are stored
+				in your Profile folder. On this machine, the Stealth Profile
+				folder is located at:
+			</p>
+			<p>
+				<code data-key="profile">/home/$USER/Stealth</code>
+			</p>
+		</article>
+		<script type="module" src="settings.mjs"></script>
+	</body>
+</html>
+

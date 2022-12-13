@@ -1,0 +1,168 @@
+
+browser-card-interface {
+	all: unset;
+	display: block;
+	position: relative;
+	width: 800px;
+	max-height: 64px;
+	margin: 0px;
+	padding: 16px;
+	background: var(--surface-default-background);
+	border: 1px solid var(--surface-default-color);
+	border-radius: 8px;
+	box-sizing: border-box;
+	transition: 200ms all ease-out;
+	overflow: hidden;
+	cursor: default;
+}
+
+browser-card-interface.active {
+	max-height: unset;
+}
+
+browser-card-interface > h3 {
+	display: block;
+	margin: 0px;
+	padding: 0px 0px 16px 0px;
+	font-family: 'crystalline';
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 32px;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+browser-card-interface > button[data-action="toggle"] {
+	display: block;
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	bottom: auto;
+	left: auto;
+}
+
+browser-card-interface > button[data-action="toggle"]:before {
+	content: '\e5c5';
+	transition: 200ms transform ease-out;
+}
+
+browser-card-interface > button[data-action="toggle"].active:before {
+	transform: rotate(180deg);
+	transition: 200ms transform ease-out;
+}
+
+
+
+browser-card-interface-article {
+	display: none;
+	width: 100%;
+	height: auto;
+}
+
+browser-card-interface.active browser-card-interface-article {
+	display: block;
+}
+
+browser-card-interface-article > h4 {
+	display: block;
+	margin: 32px 0px 16px 0px;
+	padding: 0px 0px 0px 0px;
+	font-family: 'crystalline';
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 24px;
+	text-transform: uppercase;
+	vertical-align: middle;
+	border-bottom: 1px solid var(--surface-default-color);
+}
+
+browser-card-interface-article > h4:nth-of-type(1) {
+	margin-top: 16px;
+}
+
+browser-card-interface-article > p {
+	margin: 0px 0px 16px 0px;
+	font-family: 'museo';
+	font-size: 16px;
+	text-align: justify;
+}
+
+browser-card-interface-article > ul {
+	display: block;
+	margin: 0px 0px 16px 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+browser-card-interface-article > ul li {
+	display: block;
+	width: 368px;
+	margin: 0px auto;
+	padding: 0px;
+	line-height: 32px;
+	vertical-align: middle;
+}
+
+browser-card-interface-article > ul li label {
+	margin: 0px 0px 0px 8px;
+	padding: 0px;
+	color: var(--element-default-color);
+	font-family: 'museo';
+	font-size: 16px;
+	line-height: 32px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+browser-card-interface-article > ul li label a {
+	vertical-align: top;
+}
+
+browser-card-interface-article > ul li input[type="radio"][name="theme"][value="dark"]:before               { content: '\e1ad'; }
+browser-card-interface-article > ul li input[type="radio"][name="theme"][value="light"]:before              { content: '\e1ac'; }
+browser-card-interface-article > ul li input[type="radio"][name="enforce"][value="false"]:before            { content: '\e234'; }
+browser-card-interface-article > ul li input[type="radio"][name="enforce"][value="true"]:before             { content: '\e235'; }
+browser-card-interface-article > ul li input[type="radio"][name="opentab"][value="stealth:blank"]:before    { content: '\e32a'; }
+browser-card-interface-article > ul li input[type="radio"][name="opentab"][value="stealth:history"]:before  { content: '\e889'; }
+browser-card-interface-article > ul li input[type="radio"][name="opentab"][value="stealth:media"]:before    { content: '\e038'; }
+browser-card-interface-article > ul li input[type="radio"][name="opentab"][value="stealth:search"]:before   { content: '\e52e'; }
+browser-card-interface-article > ul li input[type="radio"][name="opentab"][value="stealth:welcome"]:before  { content: '\e80c'; }
+browser-card-interface-article > ul li input[type="radio"][name="opentab"][value="stealth:schedule"]:before { content: '\e916'; }
+browser-card-interface-article > ul li input[type="radio"][name="assistant"][value="false"]:before          { content: '\e04f'; }
+browser-card-interface-article > ul li input[type="radio"][name="assistant"][value="true"]:before           { content: '\e050'; }
+
+browser-card-interface-article > ul li input[type="radio"]:focus + label,
+browser-card-interface-article > ul li input[type="radio"]:hover + label {
+	color: var(--element-focus-color);
+}
+
+browser-card-interface-article > ul li input[type="radio"]:checked + label {
+	color: var(--element-active-color);
+}
+
+
+
+browser-card-interface-footer {
+	display: none;
+	height: 32px;
+	margin: 16px 0px 0px 0px;
+	padding: 0px;
+	text-align: right;
+}
+
+browser-card-interface.active browser-card-interface-footer {
+	display: block;
+}
+
+browser-card-interface-footer > button[data-action="save"]:before { content: '\e876'; }
+
+
+
+@media screen and (max-width: 800px) {
+
+	browser-card-interface {
+		width: auto;
+	}
+
+}
+

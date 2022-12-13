@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>stealth:debug</title>
+		<style>
+
+			@import url("../design/common/index.css");
+			@import url("../design/common/theme.css");
+			@import url("../design/common/elements.css");
+			@import url("../design/common/layout.css");
+
+			@import url("../design/card/Settings.css");
+			@import url("../internal/debug/Browser.css");
+
+
+
+			body > browser-card-settings,
+			body > browser-widget-browser {
+				margin: 64px auto 64px auto;
+			}
+
+			body > browser-card-settings browser-card-settings-footer > button[data-action="open"]:before {
+				content: '\e89e';
+			}
+
+		</style>
+	</head>
+	<body data-page="debug">
+		<script type="module" src="debug.mjs"></script>
+	</body>
+</html>
+
